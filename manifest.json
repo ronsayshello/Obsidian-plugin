@@ -1,0 +1,9 @@
+{
+  "id": "libreoffice-symbols",
+  "name": "LibreOffice Symbols",
+  "version": "1.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "A searchable, categorized panel of special characters (arrows, math, currency, bullets, dingbats, accented Latin, Greek, punctuation). Click to copy and insert.",
+  "author": "Ron_07",
+  "isDesktopOnly": false
+}

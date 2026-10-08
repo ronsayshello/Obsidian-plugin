@@ -1,0 +1,205 @@
+/* ---------- Layout & size variables ---------- */
+.los-container {
+  --los-cell: 36px;
+  --los-font: 1.15em;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+  padding: var(--size-4-3);
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+  overflow-y: auto;
+}
+
+.los-container.los-size-small {
+  --los-cell: 30px;
+  --los-font: 1em;
+}
+
+.los-container.los-size-medium {
+  --los-cell: 36px;
+  --los-font: 1.15em;
+}
+
+.los-container.los-size-large {
+  --los-cell: 48px;
+  --los-font: 1.5em;
+}
+
+/* ---------- Header & search ---------- */
+.los-search-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--background-primary);
+  padding-bottom: var(--size-4-1);
+}
+
+.los-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--size-4-2);
+}
+
+.los-title {
+  font-size: var(--font-ui-medium);
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+
+.los-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+}
+
+.los-close:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.los-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.los-search {
+  width: 100%;
+}
+
+/* ---------- Category tabs ---------- */
+.los-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-2);
+}
+
+.los-tab {
+  padding: var(--size-2-1) var(--size-4-2);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: none;
+  cursor: pointer;
+  height: auto;
+}
+
+.los-tab:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.los-tab.is-active {
+  color: var(--text-on-accent);
+  background-color: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+/* ---------- Hidden sections (controlled by settings) ---------- */
+.los-tabs.is-hidden,
+.los-recent.is-hidden,
+.los-count.is-hidden {
+  display: none;
+}
+
+/* ---------- Labels ---------- */
+.los-recent-label,
+.los-fav-label,
+.los-fav-hint,
+.los-count {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+}
+
+/* ---------- Favourites & recent rows ---------- */
+.los-recent-row,
+.los-fav-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--los-cell), 1fr));
+  gap: var(--size-2-2);
+  margin-top: var(--size-2-2);
+  padding-bottom: var(--size-4-2);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* ---------- Symbol grid ---------- */
+.los-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--los-cell), 1fr));
+  gap: var(--size-2-2);
+}
+
+.los-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  font-size: var(--los-font);
+  line-height: 1;
+  color: var(--text-normal);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  box-shadow: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: background-color 0.1s ease, transform 0.1s ease;
+}
+
+.los-symbol:hover {
+  background-color: var(--background-modifier-hover);
+  border-color: var(--interactive-accent);
+}
+
+.los-symbol:active {
+  transform: scale(0.94);
+}
+
+/* Pinned favourites get an accent border everywhere they appear */
+.los-symbol.is-fav {
+  border-color: var(--interactive-accent);
+}
+
+.los-symbol.los-flash {
+  color: var(--text-on-accent);
+  background-color: var(--interactive-accent);
+}
+
+.los-empty {
+  grid-column: 1 / -1;
+  padding: var(--size-4-4);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- Narrow sidebars / phones: larger touch targets ---------- */
+@media (max-width: 600px) {
+  .los-container.los-size-small {
+    --los-cell: 38px;
+    --los-font: 1.15em;
+  }
+  .los-container.los-size-medium {
+    --los-cell: 42px;
+    --los-font: 1.3em;
+  }
+  .los-container.los-size-large {
+    --los-cell: 54px;
+    --los-font: 1.6em;
+  }
+}
